@@ -3,6 +3,11 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Footer from './components/Footer';
+import FriendDetails from './pages/FriendDetails';
+
+
+
+
 
 const Timeline = () => (
   <div className="p-10 text-center font-bold text-xl">
@@ -16,11 +21,7 @@ const Stats = () => (
   </div>
 );
 
-const FriendDetails = () => (
-  <div className="p-10 text-center font-bold text-xl">
-    Friend Details Page
-  </div>
-);
+
 
 const NotFound = () => (
   <div className="p-10 text-center font-bold text-xl text-red-500">
