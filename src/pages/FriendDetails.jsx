@@ -5,6 +5,9 @@ import {
   BellIcon,
   ArchiveBoxIcon,
   TrashIcon,
+  PhoneIcon,
+  ChatBubbleLeftEllipsisIcon,
+  VideoCameraIcon,
 } from "@heroicons/react/24/outline";
 
 const FriendDetails = () => {
@@ -30,7 +33,8 @@ const FriendDetails = () => {
 
       .catch((err) => {
         console.error(err);
-        setLoading(false);}); }, [id]);
+        setLoading(false);});}, 
+        [id]);
 
   // Status color
   const getStatusClass = (status) => {
@@ -39,7 +43,6 @@ const FriendDetails = () => {
 
     if (status === "almost due") {
       return "bg-yellow-100 text-yellow-700";}
-
 
     if (status === "on-track") {
       return "bg-green-100 text-green-700";}
@@ -52,7 +55,6 @@ const FriendDetails = () => {
       <div className="flex justify-center items-center mt-20">
         <div className="w-10 h-10 border-4 border-green-200 border-t-green-700 rounded-full animate-spin"></div>
       </div>);}
-
 
   // Friend not found
   if (!friend) {
@@ -72,10 +74,13 @@ const FriendDetails = () => {
   return (
     <div className="max-w-5xl mx-auto p-6">
 
+      {/* Main Grid */}
       <div className="grid lg:grid-cols-3 gap-6">
 
-        {/* Left Side */}
+        {/* ==LEFT SIDE ===*/}
         <div>
+
+          {/* Friend Info */}
           <div className="bg-white p-6 rounded-xl shadow text-center">
 
             <img
@@ -89,28 +94,29 @@ const FriendDetails = () => {
 
             {/* Status */}
             <span
-              className={`inline-block px-3 py-1 rounded-full text-xs font-semibold mt-1
-                ${getStatusClass(
-                friend.status)}`}>
-
+              className={`inline-block px-3 py-1 rounded-full text-xs font-semibold mt-1 ${getStatusClass(
+                friend.status
+              )}`}>
               {friend.status}
             </span>
 
             {/* Tags */}
             <div className="flex flex-wrap justify-center gap-2 mt-3">
-              {friend.tags?.map((tag,index) => (
+              {friend.tags?.map((tag, index) => (
                 <span
                   key={index}
                   className="bg-green-50 text-green-700 text-xs px-2 py-1 rounded-full">
                   {tag}
-                </span>
-              ))}
+                </span>))}
             </div>
 
+
+            {/* Bio */}
             <p className="text-sm mt-3">
               {friend.bio}
             </p>
 
+            {/* Email */}
             <p className="text-xs text-gray-400 mt-2">
               Email: {friend.email}
             </p>
@@ -119,17 +125,17 @@ const FriendDetails = () => {
           {/* Sidebar Buttons */}
           <div className="mt-3 space-y-2">
 
-            <button className="w-full p-3 bg-white rounded-xl shadow">
+            <button className="w-full p-3 bg-white rounded-xl shadow hover:bg-gray-50 transition">
               <BellIcon className="w-4 inline mr-2" />
               Snooze 2 Weeks
             </button>
 
-            <button className="w-full p-3 bg-white rounded-xl shadow">
+            <button className="w-full p-3 bg-white rounded-xl shadow hover:bg-gray-50 transition">
               <ArchiveBoxIcon className="w-4 inline mr-2" />
               Archive
             </button>
 
-            <button className="w-full p-3 bg-white rounded-xl shadow text-red-500">
+            <button className="w-full p-3 bg-white rounded-xl shadow text-red-500 hover:bg-red-50 transition">
               <TrashIcon className="w-4 inline mr-2" />
               Delete
             </button>
@@ -137,12 +143,13 @@ const FriendDetails = () => {
           </div>
         </div>
 
-        {/* Right Side */}
+        {/* == RIGHT SIDE == */}
         <div className="lg:col-span-2">
 
           {/* Stats */}
           <div className="grid grid-cols-3 gap-3">
 
+            {/* Days Since Contact */}
             <div className="bg-white p-4 rounded-xl shadow text-center">
               <h2 className="text-xl font-bold">
                 {friend.days_since_contact}
@@ -153,6 +160,7 @@ const FriendDetails = () => {
               </p>
             </div>
 
+            {/* Goal */}
             <div className="bg-white p-4 rounded-xl shadow text-center">
               <h2 className="text-xl font-bold">
                 {friend.goal}
@@ -163,6 +171,7 @@ const FriendDetails = () => {
               </p>
             </div>
 
+            {/* Next Due */}
             <div className="bg-white p-4 rounded-xl shadow text-center">
               <h2 className="text-xl font-bold">
                 {friend.next_due_date}
@@ -175,10 +184,69 @@ const FriendDetails = () => {
 
           </div>
 
+          {/* Relationship Goal Card */}
+          <div className="bg-white p-5 rounded-xl shadow-sm border border-gray-100 flex justify-between items-center mt-6">
+
+            <div>
+              <h3 className="font-bold text-emerald-900 text-base">
+                Relationship Goal
+              </h3>
+
+              <p className="text-sm text-gray-500 mt-1">
+                Connect every{" "}
+                <span className="font-bold text-gray-800">
+                  {friend.goal} days
+                </span>
+              </p>
+            </div>
+
+            <button className="px-3 py-1.5 bg-gray-100 text-xs font-semibold text-gray-700 rounded-md hover:bg-gray-200 transition">
+              Edit
+            </button>
+
+          </div>
+
+          {/* Quick Check-In Card */}
+          <div className="bg-white p-5 rounded-xl shadow-sm border border-gray-100 mt-6">
+
+            <h3 className="font-bold text-emerald-900 text-base mb-4">
+              Quick Check-In
+            </h3>
+
+            <div className="grid grid-cols-3 gap-3">
+
+              {/* Call */}
+              <button className="flex flex-col items-center justify-center p-4 rounded-xl bg-gray-50 hover:bg-gray-100 border border-gray-100 transition">
+                <PhoneIcon className="w-6 h-6 text-gray-700 mb-1" />
+
+                <span className="text-xs font-semibold text-gray-700">
+                  Call
+                </span>
+              </button>
+
+              {/* Text */}
+              <button className="flex flex-col items-center justify-center p-4 rounded-xl bg-gray-50 hover:bg-gray-100 border border-gray-100 transition">
+                <ChatBubbleLeftEllipsisIcon className="w-6 h-6 text-gray-700 mb-1" />
+
+                <span className="text-xs font-semibold text-gray-700">
+                  Text
+                </span>
+              </button>
+
+              {/* Video */}
+              <button className="flex flex-col items-center justify-center p-4 rounded-xl bg-gray-50 hover:bg-gray-100 border border-gray-100 transition">
+                <VideoCameraIcon className="w-6 h-6 text-gray-700 mb-1" />
+
+                <span className="text-xs font-semibold text-gray-700">
+                  Video
+                </span>
+              </button>
+
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  );
+    </div> );
 };
 
 export default FriendDetails;
