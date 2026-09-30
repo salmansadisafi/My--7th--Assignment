@@ -4,24 +4,16 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Footer from './components/Footer';
 import FriendDetails from './pages/FriendDetails';
+import Timeline from './pages/Timeline';
 
 
 
-
-
-const Timeline = () => (
-  <div className="p-10 text-center font-bold text-xl">
-    Timeline Page
-  </div>
-);
 
 const Stats = () => (
   <div className="p-10 text-center font-bold text-xl">
     Friendship Analytics (Stats) Page
   </div>
 );
-
-
 
 const NotFound = () => (
   <div className="p-10 text-center font-bold text-xl text-red-500">
@@ -34,8 +26,7 @@ function App() {
     <Router>
       <div className="min-h-screen bg-gray-50 text-gray-800">
 
-        <Navbar />
-
+        <Navbar/>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/timeline" element={<Timeline />} />
@@ -48,7 +39,6 @@ function App() {
 
       </div>
     </Router>
-  );
-}
+  );}
 
 export default App;

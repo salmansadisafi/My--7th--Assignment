@@ -53,7 +53,8 @@ const FriendDetails = () => {
   if (loading) {
     return (
       <div className="flex justify-center items-center mt-20">
-        <div className="w-10 h-10 border-4 border-green-200 border-t-green-700 rounded-full animate-spin"></div>
+        <div className="w-10 h-10 border-4 border-green-200 border-t-green-700
+         rounded-full animate-spin"></div>
       </div>);}
 
   // Friend not found
@@ -95,8 +96,7 @@ const FriendDetails = () => {
             {/* Status */}
             <span
               className={`inline-block px-3 py-1 rounded-full text-xs font-semibold mt-1 ${getStatusClass(
-                friend.status
-              )}`}>
+                friend.status )}`}>
               {friend.status}
             </span>
 
@@ -125,17 +125,20 @@ const FriendDetails = () => {
           {/* Sidebar Buttons */}
           <div className="mt-3 space-y-2">
 
-            <button className="w-full p-3 bg-white rounded-xl shadow hover:bg-gray-50 transition">
+            <button className="w-full p-3 bg-white rounded-xl shadow
+             hover:bg-gray-50 transition">
               <BellIcon className="w-4 inline mr-2" />
               Snooze 2 Weeks
             </button>
 
-            <button className="w-full p-3 bg-white rounded-xl shadow hover:bg-gray-50 transition">
+            <button className="w-full p-3 bg-white rounded-xl shadow
+            hover:bg-gray-50 transition">
               <ArchiveBoxIcon className="w-4 inline mr-2" />
               Archive
             </button>
 
-            <button className="w-full p-3 bg-white rounded-xl shadow text-red-500 hover:bg-red-50 transition">
+            <button className="w-full p-3 bg-white rounded-xl shadow text-red-500
+             hover:bg-red-50 transition">
               <TrashIcon className="w-4 inline mr-2" />
               Delete
             </button>
@@ -185,7 +188,8 @@ const FriendDetails = () => {
           </div>
 
           {/* Relationship Goal Card */}
-          <div className="bg-white p-5 rounded-xl shadow-sm border border-gray-100 flex justify-between items-center mt-6">
+          <div className="bg-white p-5 rounded-xl shadow-sm border 
+          border-gray-100 flex justify-between items-center mt-6">
 
             <div>
               <h3 className="font-bold text-emerald-900 text-base">
@@ -200,7 +204,8 @@ const FriendDetails = () => {
               </p>
             </div>
 
-            <button className="px-3 py-1.5 bg-gray-100 text-xs font-semibold text-gray-700 rounded-md hover:bg-gray-200 transition">
+            <button className="px-3 py-1.5 bg-gray-100 text-xs font-semibold text-gray-700 rounded-md
+             hover:bg-gray-200 transition">
               Edit
             </button>
 
@@ -216,7 +221,8 @@ const FriendDetails = () => {
             <div className="grid grid-cols-3 gap-3">
 
               {/* Call */}
-              <button className="flex flex-col items-center justify-center p-4 rounded-xl bg-gray-50 hover:bg-gray-100 border border-gray-100 transition">
+              <button className="flex flex-col items-center justify-center p-4 rounded-xl bg-gray-50
+               hover:bg-gray-100 border border-gray-100 transition">
                 <PhoneIcon className="w-6 h-6 text-gray-700 mb-1" />
 
                 <span className="text-xs font-semibold text-gray-700">
@@ -225,7 +231,8 @@ const FriendDetails = () => {
               </button>
 
               {/* Text */}
-              <button className="flex flex-col items-center justify-center p-4 rounded-xl bg-gray-50 hover:bg-gray-100 border border-gray-100 transition">
+              <button className="flex flex-col items-center justify-center p-4 rounded-xl bg-gray-50
+               hover:bg-gray-100 border border-gray-100 transition">
                 <ChatBubbleLeftEllipsisIcon className="w-6 h-6 text-gray-700 mb-1" />
 
                 <span className="text-xs font-semibold text-gray-700">
@@ -234,7 +241,8 @@ const FriendDetails = () => {
               </button>
 
               {/* Video */}
-              <button className="flex flex-col items-center justify-center p-4 rounded-xl bg-gray-50 hover:bg-gray-100 border border-gray-100 transition">
+              <button className="flex flex-col items-center justify-center p-4 rounded-xl bg-gray-50
+               hover:bg-gray-100 border border-gray-100 transition">
                 <VideoCameraIcon className="w-6 h-6 text-gray-700 mb-1" />
 
                 <span className="text-xs font-semibold text-gray-700">
